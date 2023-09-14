@@ -10,14 +10,14 @@
 .container {
   display: flex;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
 }
 
 /* Form */
 
 .form-container {
   background-color: #3c2a4d;
-  height: 100%;
+  height: 100vh;
   flex: 1;
 }
 
@@ -106,5 +106,6 @@
 
 /* Content Window */
 .content-container {
+  height: 100vh;
   flex: 3;
 }

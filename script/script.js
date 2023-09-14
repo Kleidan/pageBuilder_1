@@ -6,8 +6,8 @@ const submitInput = document.getElementById("submit-input");
 const elementWidth = document.getElementById("elementWidth");
 const elementHeight = document.getElementById("elementHeight");
 
-let maxWidth = contentContainer.offsetWidth;
-let maxHeight = contentContainer.offsetHeight;
+let maxWidth = contentContainer.getBoundingClientRect().width;
+let maxHeight = contentContainer.getBoundingClientRect().height;
 elementWidth.max = maxWidth;
 elementHeight.max = maxHeight;
 
@@ -71,5 +71,5 @@ btnLoad.addEventListener('click', () => {
 
 btnReset.addEventListener('click', () => {
   localStorage.setItem('elements', '');
-  window.location.reload;
+  window.location.reload();
 });
