@@ -4,13 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/7d99d38c98.js" crossorigin="anonymous"></script>
 
+  <!-- Script -->
+  <script src="./script/script.js" async defer></script>
 
   <!-- My Style -->
   <link rel="stylesheet" href="./style/style.css">
 
-  <!-- Script -->
-  <script src="./script/script.js" async defer></script>
 
   <title>Screen Builder</title>
 </head>
@@ -18,12 +20,26 @@
 <body>
   <div class="container">
     <!-- Form Window -->
-    <div class="form-container">
+    <div class="form-container" id="formContainer">
       <form id="myForm">
 
         <div class="form-inputs">
+
+          <!-- Select Element -->
+          <div class="form-control input-element">
+            <label for="appendElement">Select Element:</label>
+            <select name="append-element" id="appendElement">
+              <option value="div">div</option>
+              <option value="h1">h1</option>
+              <option value="h2">h2</option>
+              <option value="h3">h3</option>
+              <option value="paragraph">p</option>
+              <option value="span">span</option>
+            </select>
+          </div>
+
           <!-- Width -->
-          <div class="form-control">
+          <div class="form-control input-width">
             <label for="elementWidth">Element Width:</label>
             <input type="number" id="elementWidth" name="elementWidth" value="100" required>
             <div class="input-units">
@@ -34,8 +50,9 @@
               </select>
             </div>
           </div>
+
           <!-- Height -->
-          <div class="form-control">
+          <div class="form-control input-height">
             <label for="elementHeight">Element Height:</label>
             <input type="number" id="elementHeight" name="elementHeight" value="100" required>
             <div class="input-units">
@@ -47,16 +64,71 @@
             </div>
           </div>
 
+          <!-- Border control -->
+          <div class="form-control">
+            <label for="borderThickness">Border Thickness: (in px)</label>
+            <input type="number" name="border-thickness" id="borderThickness" value="1" required>
+          </div>
+
+          <div class="form-control">
+            <label for="selectBorderStyle">Border Style:</label>
+            <select name="select-border-style" id="selectBorderStyle">
+              <option value="solid" id="solid">solid</option>
+              <option value="hidden" id="hidden">hidden</option>
+              <option value="none" id="none">none</option>
+              <option value="dotted" id="dotted">dotted</option>
+              <option value="dashed" id="dashed">dashed</option>
+              <option value="double" id="double">double</option>
+              <option value="groove" id="groove">groove</option>
+              <option value="ridge" id="ridge">ridge</option>
+              <option value="inset" id="inset">inset</option>
+              <option value="outset" id="outset">outset</option>
+            </select>
+          </div>
+          <div class="form-control">
+            <label for="borderColor">Border Color:</label>
+            <input type="color" id="borderColor" name="border-color">
+          </div>
+          <div class="form-control">
+            <label for="borderRadius">Border Radius:</label>
+            <input type="number" name="border-radius" id="borderRadius" value="1">
+            <select name="border-radius-units" id="borderRadiusUnits">
+              <option value="px">px</option>
+              <option value="%">%</option>
+            </select>
+          </div>
+
+          <!-- Padding and Margin Selection -->
+          <div class="form-control">
+            <label for="paddingTopBottom">Padding Top and Bottom:</label>
+            <input type="number" name="padding-top-bottom" id="paddingTopBottom" value="1" max="20">
+          </div>
+
+          <div class="form-control">
+            <label for="paddingRightLeft">Padding Right and Left:</label>
+            <input type="number" name="padding-right-left" id="paddingRightLeft" value="1" max="20">
+          </div>
+
+          <div class="form-control">
+            <label for="marginTopBottom">Margin Top and Bottom:</label>
+            <input type="number" name="margin-top-bottom" id="marginTopBottom" value="1" max="20">
+          </div>
+
+          <div class="form-control">
+            <label for="marginRightLeft">Margin Right and Left:</label>
+            <input type="number" name="margin-right-left" id="marginRightLeft" value="1" max="20">
+          </div>
+
           <!-- Background Color -->
           <div class="form-control">
             <label for="elementBackgroundColor">Background Color:</label>
-            <input type="color" id="elementBackgroundColor" name="elementBackgroundColor" value="#000000" required>
+            <input type="color" id="elementBackgroundColor" name="elementBackgroundColor" value="#ffffff" required>
           </div>
 
           <!-- Font Color -->
           <div class="form-control">
             <label for="elementFontColor">Font Color:</label>
-            <input type="color" id="elementFontColor" name="elementFontColor" value="#ffffff" required>
+            <input type="color" id="elementFontColor" name="elementFontColor" value="#000000" required>
           </div>
 
           <!-- Font Size -->
@@ -72,6 +144,19 @@
             </div>
           </div>
 
+          <div class="form-control">
+            <label for="boxShadowX">Shadow X:</label>
+            <input type="number" name="box-shadow-x" id="boxShadowX" value="0">
+          </div>
+          <div class="form-control">
+            <label for="boxShadowY">Shadow Y:</label>
+            <input type="number" name="box-shadow-y" id="boxShadowY" value="0">
+          </div>
+          <div class="form-control">
+            <label for="boxShadowColor">Shadow Color:</label>
+            <input type="color" name="box-shadow-Color" id="boxShadowColor" value="#808080">
+          </div>
+
           <!-- Input Text -->
           <div class="form-control">
             <label for="elementInnerText">Text:</label>
@@ -79,9 +164,10 @@
               required></textarea>
           </div>
 
-          <!-- Submit Button -->
-          <div class="form-control">
-            <input type="submit" value="Submit" id="submit-input" name="submit-input">
+          <!-- Submit and reset screen button Button -->
+          <div class="form-control form-buttons">
+            <input type="submit" value="Add" id="submit-input" name="submit-input">
+            <input type="reset" value="Reset" id="reset-input" name="reset-input">
           </div>
         </div>
       </form>
@@ -91,6 +177,11 @@
         <button id="btn-rest">Clear</button>
       </div>
     </div>
+
+    <!-- Hide form Button -->
+    <button id="hideForm">
+      ◀
+    </button>
 
     <!-- Content Window -->
     <div class="content-container" id="contentWindow">
